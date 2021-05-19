@@ -19,7 +19,7 @@ Download the original zip and extract it somewhere. Copy all `*.mat` files
 from that directory into `data` directory inside respective assignment here.
 
 All functions that you will have to implement are in `solution.py`. 
-Once are finished with one function implementation, you can check 
+Once you are finished with one function implementation, you can check 
 your implementation locally in `check.ipynb`. This notebook does 
 the work of reading `.mat` file and converting it into appropriate
 structures. Once you are satisfied with your solution, you can 
@@ -35,7 +35,8 @@ Each variable has some cardinality. Say you want to create a factor over two bin
 of variable names. Second argument is cardinality of each variable in first 
 argument.
 
-- Also note that I've used 0 based indexing unlike original MATLAB code.
+- Also note that I've used 0 based indexing unlike original MATLAB code, so variable `1` can 
+take either value `0` or `1`.
 
 ## Note:
 - Although I've tested the assignments (i.e. almost in all cases I got 100/100.), there 
