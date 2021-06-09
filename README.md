@@ -2,8 +2,10 @@
 
 ![Claps](clap.gif)
 
-This repository contains/will contain Python skeleton for programming 
+This repository contains Python skeleton for programming 
 assignments of Coursera course "Probabilistic Graphical Models" by Daphne Koller.
+
+At the moment, I have only converted assignments from Part B and C. 
 
 # Why?
 
