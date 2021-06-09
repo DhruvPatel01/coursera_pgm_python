@@ -1,5 +1,7 @@
 # What?
 
+![Claps](clap.gif)
+
 This repository contains/will contain Python skeleton for programming 
 assignments of Coursera course "Probabilistic Graphical Models" by Daphne Koller.
 
