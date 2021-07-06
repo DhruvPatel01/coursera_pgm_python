@@ -31,7 +31,7 @@ submit your solution by running `submit.py` script. The script
 will ask you for your email address and token.
 
 ## Before you start
-Please go through the my implementation of [factor](commons/factor.py). 
+Please go through my implementation of [factor](commons/factor.py). 
 This is the most important/common class that you will work with.
 
 Factor is basically a lookup table (a dictionary) made of discrete variables.
