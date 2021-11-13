@@ -14,4 +14,3 @@
 
 - `variable_elimination` is provided in `helper.py`
 
-- Do copy `TestCases.m` into `data`, loading and testing samples is provided in `check.ipynb`.
