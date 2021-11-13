@@ -1,6 +1,7 @@
 import itertools
 
 import numpy as np
+import pandas as pd
 
 
 class Factor:
@@ -11,6 +12,8 @@ class Factor:
         To assign or access value of assignment [x=1, y=0], you can either use
             f[1, 0] = .5 (here order of the keys must match `variables` argument in the constructor) or,
             f[{'y': 1, 'x': 0}] = .5
+            
+        Use `Factor.Z` to get nomralizing constant. 
 
         This class supports following operators.
 
@@ -67,11 +70,23 @@ class Factor:
                 self.val[assignment] = init
 
         self.default = default
+        
+    @property
+    def Z(self):
+        if not self.val:
+            raise ValueError("Z is undefined for an empty/uninitialized factor")
+        return sum(self.val.values())
 
     def __repr__(self):
-        s = "Discrete Factor with variables: %r" % (self.vars, )
-        return s
+        tmp = []
+        for k, v in self.val.items():
+            tmp.append((*k, v))
 
+        df = pd.DataFrame(tmp, columns=self.vars + ['value'])
+        df = df.set_index(self.vars)
+        
+        return repr(df)
+    
     def __eq__(self, other):
         if set(self.vars) != set(other.vars):
             return False
@@ -191,6 +206,44 @@ class Factor:
         z = sum(self.val.values())
         for key in self.val:
             self.val[key] = self.val[key] / z
+            
+    def conditional_normalize(self, given):
+        """Same as normalize, but conditional. That is, Sum_X P(X|given) = 1"""
+        if not given:
+            return
+        given = set(given)
+        if given - set(self.vars):
+            raise ValueError("`given` contains a variable not part of this factor")
+        if given == set(self.vars):
+            raise ValueError("`given` can't be all the variables of this factor")
+        
+        given_domains = []
+        other_domains = []
+        given_x = []
+        other_x = []
+        
+        for x, d in zip(self.vars, self.domains):
+            if x in given:
+                given_domains.append(d)
+                given_x.append(x)
+            else:
+                other_domains.append(d)
+                other_x.append(x)
+        
+        for given_assignment in itertools.product(*given_domains):
+            full_assignment = dict(zip(given_x, given_assignment))
+            z = 0
+            for other_assignment in itertools.product(*other_domains):
+                full_assignment.update(zip(other_x, other_assignment))
+                z += self[full_assignment]
+            
+            if abs(z) < 1e-6:
+                continue
+            
+            for other_assignment in itertools.product(*other_domains):
+                full_assignment.update(zip(other_x, other_assignment))
+                self[full_assignment] /= z
+                    
 
     def evidence(self, evidence):
         """Returns new factor consistent with the evidence
