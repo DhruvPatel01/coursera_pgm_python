@@ -5,7 +5,9 @@
 This repository contains Python skeleton for programming 
 assignments of Coursera course "Probabilistic Graphical Models" by Daphne Koller.
 
-At the moment, I have only converted assignments from Part B and C. 
+At the moment, all the assignments from Part B and C are ported. 
+From Part A last two assignments have been ported. I am working on first two 
+assignments.
 
 # Why?
 
