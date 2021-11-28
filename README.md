@@ -24,8 +24,8 @@ All functions that you will have to implement are in `solution.py`.
 Once you are finished with one function implementation, you can check 
 your implementation locally in `check.ipynb`. This notebook does 
 the work of reading `.mat` file and converting it into appropriate
-structures. You will also need to copy these `.mat` files for respective 
-assignment into the `x/data/` where `x` is the name of the assignment you are working on.
+structures.
+
 
 Once you are satisfied with your solution, you can 
 submit your solution by running `submit.py` script. The script
