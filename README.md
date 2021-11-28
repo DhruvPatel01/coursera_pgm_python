@@ -31,9 +31,17 @@ Once you are satisfied with your solution, you can
 submit your solution by running `submit.py` script. The script
 will ask you for your email address and token.
 
-## Before you start
+
+## Before you start second assignment,
+
 Please go through my implementation of [factor](commons/factor.py). 
 This is the most important/common class that you will work with.
+
+**NOTE**: Please do not view that file for assignment 1. As it might
+spoil couple of answers for this assignment. This is same in original
+MATLAB code as well. Answers to some of the questions are implemented
+in later assignments, so you do not have to keep reinventing the wheel
+over and over again.
 
 Factor is basically a lookup table (a dictionary) made of discrete variables.
 Each variable has some cardinality. Say you want to create a factor over two binary variables. Use `Factor([0, 1], [2, 2])`. The first argument is a list
