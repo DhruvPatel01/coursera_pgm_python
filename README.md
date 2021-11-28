@@ -5,10 +5,7 @@
 This repository contains Python skeleton for programming 
 assignments of Coursera course "Probabilistic Graphical Models" by Daphne Koller.
 
-At the moment, all the assignments from Part B and C are ported. 
-From Part A last three assignments have been ported. I am working on the first assignment.
-
-# Why?
+All the assignments from part A, B and C have been ported.
 
 The course assignments are written in MATLAB/OCTAVE. I personally find
 this language harder in modern times and feel that newcomers generally
@@ -27,7 +24,10 @@ All functions that you will have to implement are in `solution.py`.
 Once you are finished with one function implementation, you can check 
 your implementation locally in `check.ipynb`. This notebook does 
 the work of reading `.mat` file and converting it into appropriate
-structures. Once you are satisfied with your solution, you can 
+structures. You will also need to copy these `.mat` files for respective 
+assignment into the `x/data/` where `x` is the name of the assignment you are working on.
+
+Once you are satisfied with your solution, you can 
 submit your solution by running `submit.py` script. The script
 will ask you for your email address and token.
 
